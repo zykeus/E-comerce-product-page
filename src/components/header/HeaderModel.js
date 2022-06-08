@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useGlobalStates } from '../hooks/useGlobalState';
 
 const HeaderModel = () => {
     const [menuDisplay, setMenuDisplay] = useState('invisible');
@@ -9,6 +10,7 @@ const HeaderModel = () => {
     })
     const openMenuIcon = useRef();
     const closeMenuIcon = useRef();
+    const { cart, setChangeGlobalState, globalState: { productAmount, hasSubmit } } = useGlobalStates();
 
     const handleChangeDisplay = (event) => {
         event.preventDefault();
@@ -30,6 +32,13 @@ const HeaderModel = () => {
         event.target.classList.add('md:after:bg-primary')
     };
 
+    const handleOpenCart = () => {
+        cart.current.classList.toggle('hidden')
+        if (cart.current.classList.contains('hidden')) {
+            setChangeGlobalState(oldValue => ({ ...oldValue, openCart: false }))
+        } else setChangeGlobalState(oldValue => ({ ...oldValue, openCart: true }))
+    }
+
     useEffect(() => {
 
         if (!navLinkActive.oldLink && !navLinkActive.currentLink) return;
@@ -41,17 +50,18 @@ const HeaderModel = () => {
         }
 
     }, [navLinkActive.oldValue, navLinkActive.currentLink])
-
     useEffect(() => {
         if (menuDisplay !== 'invisible') {
             openMenuIcon.current.classList.add('hidden');
             closeMenuIcon.current.classList.remove('hidden');
             setOpenMenuModel(true);
+            setChangeGlobalState(oldValue => ({ ...oldValue, navModal: true }))
 
         } else {
             openMenuIcon.current.classList.remove('hidden');
             closeMenuIcon.current.classList.add('hidden');
             setOpenMenuModel(false);
+            setChangeGlobalState(oldValue => ({ ...oldValue, navModal: false }))
         }
     }, [menuDisplay, openMenuIcon, closeMenuIcon]);
 
@@ -61,7 +71,11 @@ const HeaderModel = () => {
         openMenuIcon,
         closeMenuIcon,
         handleChangeDisplay,
+        handleOpenCart,
         handleNavLinkActive,
+        cart,
+        hasSubmit,
+        productAmount
     };
 };
 

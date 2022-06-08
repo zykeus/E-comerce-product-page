@@ -7,14 +7,19 @@ const ChangeGlobalStatesProvider = ({ children }) => {
         productImageUrl: null,
         hasSubmit: false,
         productCheckout: false,
+        openCart: false,
+        finalProductCost: 0,
+        productDefaultPrice: 0,
+        productAmount: 0
     })
 
     const slideThumb = useRef([]);
     const slideProduct = useRef([]);
     const productName = useRef();
+    const cart = useRef();
 
     return (
-        <ChangeGlobalStates.Provider value={{ globalState, setChangeGlobalState, slideThumb, slideProduct }}>
+        <ChangeGlobalStates.Provider value={{ globalState, setChangeGlobalState, slideThumb, slideProduct, cart, productName }}>
             {children}
         </ChangeGlobalStates.Provider>
     )

@@ -5,7 +5,7 @@ import { ReactComponent as IconClose } from '../../assets/svg/icon-close.svg';
 
 import imgAvatar from "../../assets/images/image-avatar.png";
 
-const HeaderView = ({ model }) => {
+const HeaderView = ({ model, CartController }) => {
     return (
         <header className='flex items-center justify-between w-full px-6 py-4 h-fit md:col-start-1 md:col-span-full md:px-4 md-lg:px-0 md-lg:col-start-2 md-lg:col-span-9 md-lg:min-w-fit lg:col-start-3 lg:col-span-8 md:border-b md:border-b-gray-blue z-40'>
             <div className='flex items-center justify-between w-50 md:w-auto'>
@@ -49,14 +49,18 @@ const HeaderView = ({ model }) => {
             </button>
 
             <div className="relative flex items-center justify-between w-20 lg:w-24">
-                <button className='relative z-[50]'>
+                <button className='relative z-[50]' onClick={model.handleOpenCart} >
                     <IconCart className="cursor-pointer" />
-                    <span className={`absolute -top-2 -right-[.4rem] bg-primary text-white rounded-full w-5 h-1 text-[.7rem] flex items-center justify-center py-2 font-bold'>{model.productAmount}`}>
-                        2
-                    </span>
+                    {model.hasSubmit ?
+                        <span className={`absolute -top-2 -right-[.4rem] bg-primary text-white rounded-full w-5 h-1 text-[.7rem] flex items-center justify-center py-2 font-bold'>{model.productAmount}`}>
+                            {model.productAmount}
+                        </span>
+                        : null
+                    }
                 </button>
                 <img className="h-8 sm:h-10 cursor-pointer md:h-12 border-2 border-transparent rounded-full hover:border-primary transition-all xl:h-14" src={imgAvatar} alt="avatar" />
             </div>
+            {CartController}
         </header>
     )
 };
