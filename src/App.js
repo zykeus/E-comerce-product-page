@@ -1,10 +1,15 @@
+import HeaderController from './components/header/HeaderController';
+
+const menuLinks = ['collections', 'men', 'women', 'about', 'contact'];
 
 function App() {
-  return (
-    <div>
 
-    </div>
+  return (
+    <>
+      <HeaderController menuLinks={menuLinks} />
+    </>
   );
 }
 
 export default App;
+

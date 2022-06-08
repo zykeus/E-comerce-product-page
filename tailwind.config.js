@@ -1,5 +1,4 @@
 module.exports = {
-  darkMode: 'class',
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   theme: {
     screens: {
@@ -27,9 +26,6 @@ module.exports = {
         'light-gray-blue': 'hsl(223, 64%, 98%)',
         'black': 'hsl(0, 0%, 0%, 75%)'
       },
-      zIndex: {
-        negative: '-9999'
-      }
     },
   },
   plugins: [],
