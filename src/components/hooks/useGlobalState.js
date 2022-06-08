@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from 'react';
+import { useContext, createContext, useState, useRef } from 'react';
 
 const ChangeGlobalStates = createContext();
 const ChangeGlobalStatesProvider = ({ children }) => {
@@ -7,8 +7,11 @@ const ChangeGlobalStatesProvider = ({ children }) => {
         productImageUrl: null,
     })
 
+    const slideThumb = useRef([]);
+    const slideProduct = useRef([]);
+
     return (
-        <ChangeGlobalStates.Provider value={{ globalState, setChangeGlobalState }}>
+        <ChangeGlobalStates.Provider value={{ globalState, setChangeGlobalState, slideThumb, slideProduct }}>
             {children}
         </ChangeGlobalStates.Provider>
     )
