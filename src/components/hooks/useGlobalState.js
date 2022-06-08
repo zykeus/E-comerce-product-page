@@ -5,10 +5,13 @@ const ChangeGlobalStatesProvider = ({ children }) => {
     const [globalState, setChangeGlobalState] = useState({
         currSlide: 0,
         productImageUrl: null,
+        hasSubmit: false,
+        productCheckout: false,
     })
 
     const slideThumb = useRef([]);
     const slideProduct = useRef([]);
+    const productName = useRef();
 
     return (
         <ChangeGlobalStates.Provider value={{ globalState, setChangeGlobalState, slideThumb, slideProduct }}>
