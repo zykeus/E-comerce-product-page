@@ -2,11 +2,12 @@ import FigureProductsView from './FigureProductsView';
 import FigureProductsModel from './FigureProductsModel';
 
 const FigureProductsController = ({ hasOpenModal }) => {
-	const { handleGetBtnSlide, slideProduct } = FigureProductsModel();
+	const { handleGetBtnSlide, handleOpenFigureModal, slideProduct, openCart } = FigureProductsModel();
 	return (
 		<FigureProductsView
 			hasOpenModal={hasOpenModal} handleGetBtnSlide={handleGetBtnSlide}
-			slideProduct={slideProduct} />
+			handleOpenFigureModal={handleOpenFigureModal}
+			slideProduct={slideProduct} openCart={openCart} />
 	)
 };
 

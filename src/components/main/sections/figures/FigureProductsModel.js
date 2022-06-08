@@ -5,7 +5,7 @@ const FigureProductsModel = () => {
 	const [getBtnSlide, setGetBtnSlide] = useState({
 		btnSlide: '',
 	})
-	const { globalState: { currSlide }, setChangeGlobalState, slideProduct } = useGlobalStates();
+	const { globalState: { currSlide, openCart }, setChangeGlobalState, slideProduct } = useGlobalStates();
 
 	const handleGetBtnSlide = useCallback((event) => {
 
@@ -19,6 +19,15 @@ const FigureProductsModel = () => {
 			setChangeGlobalState(oldValue => ({ ...oldValue, currSlide: currSlide + 1 }))
 		}
 	}, [currSlide, getBtnSlide.btnSlide])
+
+	const handleOpenFigureModal = (event) => {
+		console.log('open modal')
+		const figureProduct = event.target.closest('img');
+
+		if (!figureProduct) return;
+
+		setChangeGlobalState(oldValue => ({ ...oldValue, hasOpenModal: true }))
+	}
 
 	useEffect(() => {
 		if (getBtnSlide.btnSlide === 'prev-slide') {
@@ -72,7 +81,7 @@ const FigureProductsModel = () => {
 	}, [currSlide, getBtnSlide.btnSlide])
 
 	return {
-		slideProduct, handleGetBtnSlide
+		slideProduct, handleGetBtnSlide, handleOpenFigureModal, openCart
 	}
 };
 

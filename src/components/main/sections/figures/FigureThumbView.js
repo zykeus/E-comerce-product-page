@@ -7,10 +7,10 @@ import fourthProductThumb from '../../../../assets/images/image-product-4-thumbn
 
 const THUMB_PRODUCTS = [firstProductThumb, secondProductThumb, thirdProductThumb, fourthProductThumb];
 
-const FigureThumbView = ({ handleGetFigureEl, slideThumb }) => {
+const FigureThumbView = ({ handleGetFigureEl, slideThumb, hasOpenModal }) => {
 	return (
-		<figure className={`relative md:block mt-4 md:mt-0 h-full w-full`}>
-			<ul className={`flex justify-between h-full w-full px-0 mt-0`}>
+		<figure className={` ${hasOpenModal ? 'visible' : 'hidden'} relative md:block mt-4 md:mt-0 h-full w-full`}>
+			<ul className={`flex justify-between h-full w-full ${hasOpenModal ? 'px-8 mt-5' : 'px-0 mt-0'} `}>
 				{Children.toArray(
 					THUMB_PRODUCTS.map((thumbs, index) => {
 						return (

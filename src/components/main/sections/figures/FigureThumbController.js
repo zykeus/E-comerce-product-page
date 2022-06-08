@@ -1,11 +1,11 @@
 import FigureThumbView from './FigureThumbView';
 import FigureThumbModel from './FigureThumbModel';
 
-const FigureThumbController = () => {
+const FigureThumbController = ({ hasOpenModal }) => {
 	const { handleGetFigureEl, slideThumb } = FigureThumbModel();
 	return (
 		<FigureThumbView
-			handleGetFigureEl={handleGetFigureEl}
+			hasOpenModal={hasOpenModal} handleGetFigureEl={handleGetFigureEl}
 			slideThumb={slideThumb} />
 	)
 };

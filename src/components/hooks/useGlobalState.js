@@ -10,7 +10,8 @@ const ChangeGlobalStatesProvider = ({ children }) => {
         openCart: false,
         finalProductCost: 0,
         productDefaultPrice: 0,
-        productAmount: 0
+        productAmount: 0,
+        hasOpenModal: false
     })
 
     const slideThumb = useRef([]);
