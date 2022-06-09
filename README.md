@@ -1,4 +1,4 @@
-# Frontend Mentor - E-commerce product page
+# Frontend Mentor Challenge - E-commerce product page
 ![](product-screenshot/product-page-screenshot.png)
 
 <a href="https://challenge-product-page-ecommerce.netlify.app/">Demo</a>
