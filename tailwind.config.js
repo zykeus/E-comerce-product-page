@@ -26,6 +26,9 @@ module.exports = {
         'light-gray-blue': 'hsl(223, 64%, 98%)',
         'black': 'hsl(0, 0%, 0%, 75%)'
       },
+      gridTemplateColumns: {
+        'main-lg': 'repeat(4, 1fr) repeat(3, min-content)'
+      }
     },
   },
   plugins: [],

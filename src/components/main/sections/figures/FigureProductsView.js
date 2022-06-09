@@ -11,7 +11,7 @@ const PRODUCTS = [firstProduct, secondProduct, thirdProduct, fourthProduct];
 
 const FigureProductsView = ({ hasOpenModal, handleGetBtnSlide, handleOpenFigureModal, slideProduct, openCart }) => {
 	return (
-		<div className={` relative w-full h-full md:row-start-1 md:row-span-2`}>
+		<div className={`flex items-center relative w-full h-full md:h-96 md:row-start-1 md:row-span-2`}>
 			<figure className='h-full'>
 				<ul className='h-full'>
 					{Children.toArray(
@@ -26,12 +26,12 @@ const FigureProductsView = ({ hasOpenModal, handleGetBtnSlide, handleOpenFigureM
 					)}
 				</ul>
 			</figure>
-			<button id='prev-slide' onClick={handleGetBtnSlide} className={`flex justify-center items-center absolute inset-y-0 my-auto border-2 bg-white h-10 ml-4 w-10 sm:w-12 sm:h-12 sm-md:w-14 sm-md:h-14 rounded-full text-sm ${openCart ? 'hidden' : 'inline-block'} ${hasOpenModal ? 'md:visible ml-0 -left-5' : 'md:invisible'} `}>
-				<IconPrev className='inline-block' />
+			<button id='prev-slide' onClick={handleGetBtnSlide} className={`absolute inset-x-0 mx-auto left-0 flex justify-center items-center border-2 bg-white h-10 ml-4 w-10 sm:w-12 sm:h-12 sm-md:w-14 sm-md:h-14 rounded-full text-sm ${openCart ? 'hidden' : 'flex'} ${hasOpenModal ? 'md:visible ml-0 -left-5' : 'md:invisible'} `}>
+				<IconPrev />
 			</button>
-			<button id='next-slide' onClick={handleGetBtnSlide} className={`flex justify-center items-center absolute inset-y-0 my-auto right-0 border-2 bg-white h-10 mr-4 w-10 sm:w-12 sm:h-12 sm-md:w-14 sm-md:h-14 rounded-full
-	        	text-sm ${openCart ? 'hidden' : 'inline-block'} ${hasOpenModal ? 'md:visibile mr-0 -right-5' : 'md:invisible'} `}>
-				<IconNext className='inline-block' />
+			<button id='next-slide' onClick={handleGetBtnSlide} className={`absolute inset-x-0 mx-auto right-0 flex justify-center items-center border-2 bg-white h-10 mr-4 w-10 sm:w-12 sm:h-12 sm-md:w-14 sm-md:h-14 rounded-full
+	        	text-sm ${openCart ? 'hidden' : 'flex'} ${hasOpenModal ? 'md:visibile mr-0 -right-5' : 'md:invisible'} `}>
+				<IconNext />
 			</button>
 		</div>
 
